@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.L_Flatout2Found = new System.Windows.Forms.Label();
@@ -47,9 +48,9 @@
             this.B_ExtractFlatout1 = new System.Windows.Forms.Button();
             this.CB_CleanFiles = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.B_CustomSountrack = new System.Windows.Forms.Button();
             this.B_EditMenu = new System.Windows.Forms.Button();
             this.B_PackIt = new System.Windows.Forms.Button();
-            this.B_CustomSountrack = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -304,6 +305,18 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(357, 28);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
+            // B_CustomSountrack
+            // 
+            this.B_CustomSountrack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.B_CustomSountrack.Enabled = false;
+            this.B_CustomSountrack.Location = new System.Drawing.Point(121, 3);
+            this.B_CustomSountrack.Name = "B_CustomSountrack";
+            this.B_CustomSountrack.Size = new System.Drawing.Size(114, 22);
+            this.B_CustomSountrack.TabIndex = 4;
+            this.B_CustomSountrack.Text = "Custom Soundtrack";
+            this.B_CustomSountrack.UseVisualStyleBackColor = true;
+            this.B_CustomSountrack.Click += new System.EventHandler(this.B_CustomSountrack_Click);
+            // 
             // B_EditMenu
             // 
             this.B_EditMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -326,18 +339,6 @@
             this.B_PackIt.UseVisualStyleBackColor = true;
             this.B_PackIt.Click += new System.EventHandler(this.B_PackIt_Click);
             // 
-            // B_CustomSountrack
-            // 
-            this.B_CustomSountrack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_CustomSountrack.Enabled = false;
-            this.B_CustomSountrack.Location = new System.Drawing.Point(121, 3);
-            this.B_CustomSountrack.Name = "B_CustomSountrack";
-            this.B_CustomSountrack.Size = new System.Drawing.Size(114, 22);
-            this.B_CustomSountrack.TabIndex = 4;
-            this.B_CustomSountrack.Text = "Custom Soundtrack";
-            this.B_CustomSountrack.UseVisualStyleBackColor = true;
-            this.B_CustomSountrack.Click += new System.EventHandler(this.B_CustomSountrack_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +346,7 @@
             this.ClientSize = new System.Drawing.Size(365, 242);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Flatout Ultimate Carnage - Music Tool";
