@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Diagnostics;
@@ -10,6 +11,13 @@ using Microsoft.Win32;
 
 namespace Flatout3_MusicTool
 {
+    public enum GameEnum
+    {
+        Flatout1,
+        Flatout2,
+        FlatoutUC
+    }
+
     public class Paths
     {
         public bool Flatout1Found = false;
@@ -37,18 +45,55 @@ namespace Flatout3_MusicTool
                 Flatout3Found = checkFlatout3Location();
             }
 
-            if(Flatout3Found)
+            checkExtractedFiles(ost);
+        }
+
+        private void checkExtractedFiles(OSTDictionary.OSTs ost)
+        {
+            if (Flatout3Found)
             {
                 Flatout1OSTExtracted = checkIfExists(ost.Flatout1List);
                 Flatout2OSTExtracted = checkIfExists(ost.Flatout2List);
                 Flatout3OSTExtracted = checkIfExists(ost.Flatout3List);
             }
+            else
+            {
+                Flatout1OSTExtracted = false;
+                Flatout2OSTExtracted = false;
+                Flatout3OSTExtracted = false;
+            }
+        }
+
+        public void setFlatoutLocation(GameEnum game, OSTDictionary.OSTs ost)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.ShowNewFolderButton = false;
+            DialogResult result = fbd.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                string directory = fbd.SelectedPath;
+
+                if(game == GameEnum.Flatout1)
+                    Flatout1Found = checkFlatout1Location(directory);
+                else if (game == GameEnum.Flatout2)
+                    Flatout2Found = checkFlatout2Location(directory);
+                else if (game == GameEnum.FlatoutUC)
+                    Flatout3Found = checkFlatout3Location(directory);
+
+                checkExtractedFiles(ost);
+            }
         }
 
         #region LocationChecks
-        private bool checkFlatout1Location()
+        private bool checkFlatout1Location(string setPath = "")
         {
-            string tempLocation = Path.Combine(SteamLocation, "FlatOut");
+            string tempLocation = "";
+            if (setPath == "")
+                tempLocation = Path.Combine(SteamLocation, "FlatOut");
+            else
+                tempLocation = setPath;
+
             if (File.Exists(Path.Combine(tempLocation, "flatout.exe"))
                 && File.Exists(Path.Combine(tempLocation, "common1.bfs")))
             {
@@ -62,9 +107,15 @@ namespace Flatout3_MusicTool
             }
         }
 
-        private bool checkFlatout2Location()
+
+        private bool checkFlatout2Location(string setPath = "")
         {
-            string tempLocation = Path.Combine(SteamLocation, "FlatOut2");
+            string tempLocation = "";
+            if (setPath == "")
+                tempLocation = Path.Combine(SteamLocation, "FlatOut2");
+            else
+                tempLocation = setPath;
+
             if (File.Exists(Path.Combine(tempLocation, "FlatOut2.exe"))
                 && File.Exists(Path.Combine(tempLocation, "fo2a.bfs")))
             {
@@ -79,9 +130,15 @@ namespace Flatout3_MusicTool
 
         }
 
-        private bool checkFlatout3Location()
+        private bool checkFlatout3Location(string setPath = "")
         {
-            string tempLocation = Path.Combine(SteamLocation, "FlatOut Ultimate Carnage");
+            string tempLocation = "";
+
+            if (setPath == "")
+                tempLocation = Path.Combine(SteamLocation, "FlatOut Ultimate Carnage");
+            else
+                tempLocation = setPath;
+
             if (File.Exists(Path.Combine(tempLocation, "Fouc.exe"))
                 && File.Exists(Path.Combine(tempLocation, "data.bfs")))
             {
@@ -122,7 +179,6 @@ namespace Flatout3_MusicTool
                 Debug.WriteLine(e);
                 return "";
             }
-
         }
     }
 }

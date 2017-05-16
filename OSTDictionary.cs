@@ -288,7 +288,6 @@ namespace OSTDictionary
                     else
                         return false;
                 }
-
             }
             else
                 return false;

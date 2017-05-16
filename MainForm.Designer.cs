@@ -51,10 +51,15 @@
             this.B_CustomSountrack = new System.Windows.Forms.Button();
             this.B_EditMenu = new System.Windows.Forms.Button();
             this.B_PackIt = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.B_BrowseFlatoutUC = new System.Windows.Forms.Button();
+            this.B_BrowseFlatout = new System.Windows.Forms.Button();
+            this.B_BrowseFlatout2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -64,16 +69,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 118F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(365, 242);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(365, 277);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -298,18 +305,18 @@
             this.tableLayoutPanel4.Controls.Add(this.B_EditMenu, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.B_PackIt, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 175);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(4, 239);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(357, 28);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(357, 34);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // B_CustomSountrack
             // 
             this.B_CustomSountrack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.B_CustomSountrack.Enabled = false;
-            this.B_CustomSountrack.Location = new System.Drawing.Point(121, 3);
+            this.B_CustomSountrack.Location = new System.Drawing.Point(121, 6);
             this.B_CustomSountrack.Name = "B_CustomSountrack";
             this.B_CustomSountrack.Size = new System.Drawing.Size(114, 22);
             this.B_CustomSountrack.TabIndex = 4;
@@ -320,7 +327,7 @@
             // B_EditMenu
             // 
             this.B_EditMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_EditMenu.Location = new System.Drawing.Point(7, 3);
+            this.B_EditMenu.Location = new System.Drawing.Point(7, 6);
             this.B_EditMenu.Name = "B_EditMenu";
             this.B_EditMenu.Size = new System.Drawing.Size(75, 22);
             this.B_EditMenu.TabIndex = 1;
@@ -331,7 +338,7 @@
             // B_PackIt
             // 
             this.B_PackIt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_PackIt.Location = new System.Drawing.Point(274, 3);
+            this.B_PackIt.Location = new System.Drawing.Point(274, 6);
             this.B_PackIt.Name = "B_PackIt";
             this.B_PackIt.Size = new System.Drawing.Size(75, 22);
             this.B_PackIt.TabIndex = 3;
@@ -339,11 +346,61 @@
             this.B_PackIt.UseVisualStyleBackColor = true;
             this.B_PackIt.Click += new System.EventHandler(this.B_PackIt_Click);
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Controls.Add(this.B_BrowseFlatout2, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.B_BrowseFlatoutUC, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.B_BrowseFlatout, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 175);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(357, 57);
+            this.tableLayoutPanel5.TabIndex = 3;
+            // 
+            // B_BrowseFlatoutUC
+            // 
+            this.B_BrowseFlatoutUC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.B_BrowseFlatoutUC.Location = new System.Drawing.Point(241, 3);
+            this.B_BrowseFlatoutUC.Name = "B_BrowseFlatoutUC";
+            this.B_BrowseFlatoutUC.Size = new System.Drawing.Size(113, 51);
+            this.B_BrowseFlatoutUC.TabIndex = 1;
+            this.B_BrowseFlatoutUC.Text = "Browse for Flatout Ultimate Carnage location";
+            this.B_BrowseFlatoutUC.UseVisualStyleBackColor = true;
+            this.B_BrowseFlatoutUC.Click += new System.EventHandler(this.B_BrowseFlatoutUC_Click);
+            // 
+            // B_BrowseFlatout
+            // 
+            this.B_BrowseFlatout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.B_BrowseFlatout.Location = new System.Drawing.Point(3, 3);
+            this.B_BrowseFlatout.Name = "B_BrowseFlatout";
+            this.B_BrowseFlatout.Size = new System.Drawing.Size(113, 51);
+            this.B_BrowseFlatout.TabIndex = 0;
+            this.B_BrowseFlatout.Text = "Browse for Flatout location";
+            this.B_BrowseFlatout.UseVisualStyleBackColor = true;
+            this.B_BrowseFlatout.Click += new System.EventHandler(this.B_BrowseFlatout_Click);
+            // 
+            // B_BrowseFlatout2
+            // 
+            this.B_BrowseFlatout2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.B_BrowseFlatout2.Location = new System.Drawing.Point(122, 3);
+            this.B_BrowseFlatout2.Name = "B_BrowseFlatout2";
+            this.B_BrowseFlatout2.Size = new System.Drawing.Size(113, 51);
+            this.B_BrowseFlatout2.TabIndex = 2;
+            this.B_BrowseFlatout2.Text = "Browse for Flatout 2 location";
+            this.B_BrowseFlatout2.UseVisualStyleBackColor = true;
+            this.B_BrowseFlatout2.Click += new System.EventHandler(this.B_BrowseFlatout2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 242);
+            this.ClientSize = new System.Drawing.Size(365, 277);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -356,6 +413,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -384,6 +442,10 @@
         private System.Windows.Forms.Button B_EditMenu;
         private System.Windows.Forms.Button B_PackIt;
         private System.Windows.Forms.Button B_CustomSountrack;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button B_BrowseFlatoutUC;
+        private System.Windows.Forms.Button B_BrowseFlatout;
+        private System.Windows.Forms.Button B_BrowseFlatout2;
     }
 }
 

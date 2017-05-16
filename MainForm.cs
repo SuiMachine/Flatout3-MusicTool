@@ -18,12 +18,12 @@ namespace Flatout3_MusicTool
         public MainForm()
         {
             InitializeComponent();
+            paths = new Paths(ost);
             updateDisplayedOptions();
         }
 
         private void updateDisplayedOptions()
         {
-            paths = new Paths(ost);
             setFoundLabel(L_Flatout1Found, paths.Flatout1Found);
             setFoundLabel(L_Flatout2Found, paths.Flatout2Found);
             setFoundLabel(L_Flatout3Found, paths.Flatout3Found);
@@ -81,6 +81,24 @@ namespace Flatout3_MusicTool
                 MessageBox.Show("Everything completed without an issue.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show(modding.ModError, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void B_BrowseFlatout_Click(object sender, EventArgs e)
+        {
+            paths.setFlatoutLocation(GameEnum.Flatout1, ost);
+            updateDisplayedOptions();
+        }
+
+        private void B_BrowseFlatout2_Click(object sender, EventArgs e)
+        {
+            paths.setFlatoutLocation(GameEnum.Flatout2, ost);
+            updateDisplayedOptions();
+        }
+
+        private void B_BrowseFlatoutUC_Click(object sender, EventArgs e)
+        {
+            paths.setFlatoutLocation(GameEnum.FlatoutUC, ost);
+            updateDisplayedOptions();
         }
 
         private void B_CustomSountrack_Click(object sender, EventArgs e)
