@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace OSTDictionary
 {
@@ -11,6 +12,9 @@ namespace OSTDictionary
         public Dictionary<string, FileInfo> Flatout1 = new Dictionary<string, FileInfo>();
         public Dictionary<string, FileInfo> Flatout2 = new Dictionary<string, FileInfo>();
         public Dictionary<string, FileInfo> Flatout3 = new Dictionary<string, FileInfo>();
+
+
+        public Dictionary<string, FileInfo> CustomSoundtrack = new Dictionary<string, FileInfo>();
 
         public List<string> Flatout1List = new List<string>();
         public List<string> Flatout2List = new List<string>();

@@ -8,6 +8,7 @@ using System.Reflection;
 using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
+using OSTDictionary;
 
 namespace Flatout3_MusicTool
 {
@@ -34,6 +35,8 @@ namespace Flatout3_MusicTool
 
         private string SteamLocation = "";
 
+        private const string customPlaylistSaveFile = "custom_playlist.txt";
+
         public Paths(OSTDictionary.OSTs ost)
         {
             SelfLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -55,6 +58,7 @@ namespace Flatout3_MusicTool
                 Flatout1OSTExtracted = checkIfExists(ost.Flatout1List);
                 Flatout2OSTExtracted = checkIfExists(ost.Flatout2List);
                 Flatout3OSTExtracted = checkIfExists(ost.Flatout3List);
+                loadCustomSoundtrack(ost);
             }
             else
             {
@@ -62,6 +66,65 @@ namespace Flatout3_MusicTool
                 Flatout2OSTExtracted = false;
                 Flatout3OSTExtracted = false;
             }
+        }
+
+        private void loadCustomSoundtrack(OSTs ost)
+        {
+            ost.CustomSoundtrack.Clear();
+            string customFolder = Path.Combine(Flatout3Location, "data", "music", "custom");
+            if (!Directory.Exists(customFolder))
+                Directory.CreateDirectory(customFolder);
+
+            if(File.Exists(Path.Combine(Flatout3Location, "data", "music", customPlaylistSaveFile)))
+            {
+                string[] lines = File.ReadAllLines(Path.Combine(Flatout3Location, "data", "music", customPlaylistSaveFile));
+                foreach(string line in lines)
+                {
+                    string[] split = line.Split('\t');
+                    ost.CustomSoundtrack.Add(split[0], new OSTDictionary.FileInfo(split[1], split[2]));
+                }
+            }
+
+            List<string> files = Directory.GetFiles(customFolder, "*.ogg").ToList();
+            for(int i=0; i<files.Count; i++)
+            {
+                //Convert full filePath to only fileNames
+                files[i] = files[i].Split(new char[] { '\\', '/' }).Last();
+            }
+
+            if (files.Count != 0)
+            {
+                Dictionary<string, OSTDictionary.FileInfo> filteredDictionary = new Dictionary<string, OSTDictionary.FileInfo>();
+                foreach(string file in files)
+                {
+                    if(ost.CustomSoundtrack.ContainsKey(file))
+                    {
+                        filteredDictionary.Add(file, ost.CustomSoundtrack[file]);
+                    }
+                }
+                ost.CustomSoundtrack = filteredDictionary;
+            }
+            else
+                ost.CustomSoundtrack.Clear();
+
+            foreach (string file in files)
+            {
+                //Add new files to a playlist
+                if (!ost.CustomSoundtrack.ContainsKey(file))
+                    ost.CustomSoundtrack.Add(file, new OSTDictionary.FileInfo("???", "???"));
+            }
+        }
+
+        internal void saveCustomInfo(OSTs ost)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Clear();
+            foreach (var element in ost.CustomSoundtrack)
+            {
+                sb.AppendLine(element.Key + "\t" + element.Value.artist + "\t" + element.Value.song);
+            }
+
+            File.WriteAllText(Path.Combine(Flatout3Location, "data", "music", customPlaylistSaveFile), sb.ToString());
         }
 
         public void setFlatoutLocation(GameEnum game, OSTDictionary.OSTs ost)

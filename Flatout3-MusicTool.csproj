@@ -65,6 +65,12 @@
     <Compile Include="ModGame.cs" />
     <Compile Include="OSTDictionary.cs" />
     <Compile Include="Paths.cs" />
+    <Compile Include="CustomEntriesEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomEntriesEditor.Designer.cs">
+      <DependentUpon>CustomEntriesEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlaylistEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomEntriesEditor.resx">
+      <DependentUpon>CustomEntriesEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaylistEditor.resx">
       <DependentUpon>PlaylistEditor.cs</DependentUpon>

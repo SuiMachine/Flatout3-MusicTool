@@ -73,6 +73,14 @@ namespace Flatout3_MusicTool
             updateDisplayedOptions();
         }
 
+        private void B_CustomSountrack_Click(object sender, EventArgs e)
+        {
+            CustomEntriesEditor playlistEditor = new CustomEntriesEditor(paths, ost);
+            playlistEditor.ShowDialog();
+            playlistEditor.Dispose();
+            updateDisplayedOptions();
+        }
+
         private void B_PackIt_Click(object sender, EventArgs e)
         {
             ModGame modding = new ModGame(paths, ost);
@@ -99,11 +107,6 @@ namespace Flatout3_MusicTool
         {
             paths.setFlatoutLocation(GameEnum.FlatoutUC, ost);
             updateDisplayedOptions();
-        }
-
-        private void B_CustomSountrack_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

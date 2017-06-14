@@ -149,6 +149,27 @@ namespace Flatout3_MusicTool
                 stuntCollection.Add(new Label() { Text = element.Value.song });
                 stuntCollection.Container.RowCount++;
             }
+
+            foreach (var element in ost.CustomSoundtrack)
+            {
+                menuCollection.Add(new CheckBox() { Text = "" });
+                menuCollection.Add(new Label() { Text = "!" });
+                menuCollection.Add(new Label() { Text = element.Value.artist });
+                menuCollection.Add(new Label() { Text = element.Value.song });
+                menuCollection.Container.RowCount++;
+
+                raceCollection.Add(new CheckBox() { Text = "" });
+                raceCollection.Add(new Label() { Text = "!" });
+                raceCollection.Add(new Label() { Text = element.Value.artist });
+                raceCollection.Add(new Label() { Text = element.Value.song });
+                raceCollection.Container.RowCount++;
+
+                stuntCollection.Add(new CheckBox() { Text = "" });
+                stuntCollection.Add(new Label() { Text = "!" });
+                stuntCollection.Add(new Label() { Text = element.Value.artist });
+                stuntCollection.Add(new Label() { Text = element.Value.song });
+                stuntCollection.Container.RowCount++;
+            }
         }
 
         private void B_Close_Click(object sender, EventArgs e)
